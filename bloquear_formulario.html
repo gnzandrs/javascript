@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Bloquear Formulario</title>
+	<script type="text/javascript">
+	function habilitarBotones()
+	{
+		alert("Habilitando los botones..");
+		// Recorre todos los tag en la pagina con el control 'input' 
+		for (a=0; a < document.getElementsByTagName('input').length; a++)
+		{
+			document.getElementsByTagName('input')[a].disabled = false;
+		}
+			
+		// ocultamos el div con el mensaje de espera.
+		document.getElementById('mensaje_cpn').style.display='none';
+	}
+	 
+	 function desabilitarBotones()
+	{
+		alert("Desabilitando los botones..");
+		// Recorre todos los tag en la pagina con el control 'input' 
+		for (a=0; a < document.getElementsByTagName('input').length; a++)
+		{
+			// Desabilitamos todos para bloquear el formulario
+			document.getElementsByTagName('input')[a].disabled = true;
+		}
+		
+		// mostramos el div con el mensaje de espera.
+		document.getElementById('mensaje_cpn').style.display='block';
+	}
+	</script>   
+</head>
+
+<body>
+  <table width="400" border="0">
+    <tr>
+      <td width="188">Nombre:</td>
+      <td width="202">
+      <input type="text" name="texto_nombre" id="texto_nombre"></td>
+    </tr>
+    <tr>
+      <td>Apellido:</td>
+      <td><input type="text" name="texto_apellido" id="texto_apellido"></td>
+    </tr>
+    <tr>
+      <td>Correo:</td>
+      <td><input type="text" name="texto_correo" id="texto_correo"></td>
+    </tr>
+    <tr>
+      <td>Ciudad:</td>
+      <td><input type="text" name="texto_ciudad" id="texto_ciudad"></td>
+    </tr>
+  </table>
+  <p>
+	<input type="button" name="btn_aceptar" id="btn_aceptar" value="Aceptar" onClick="desabilitarBotones();">
+  </p>
+  <p>
+	<a href="#" onClick="habilitarBotones();">Habilitar Formulario</a>
+  </p>
+  <p>
+	<div id="mensaje_cpn" style="display: none; color: red">
+		El formulario ha sido bloqueado, porfavor habilitelo o espere eternamente..
+	</div>
+  </p>
+</body>
+</html>
